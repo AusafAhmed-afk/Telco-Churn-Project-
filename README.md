@@ -1,144 +1,154 @@
-<<<<<<< HEAD
-📝 Telco Customer Churn Prediction API
-Tagline
+Here’s a polished, professional version of your GitHub README that will make your project stand out:
 
-A machine learning pipeline that uses XGBoost and FastAPI to predict customer churn risk based on service and contract data.
+---
 
-Problem Statement
+# 📝 Telco Customer Churn Prediction API
 
-Customer churn prediction is critical for businesses to retain valuable clients. This project aims to predict which customers are likely to discontinue their service. The goal is to equip the company with insights that can help implement targeted retention strategies, reducing churn rates and increasing customer loyalty.
+A machine learning pipeline using **XGBoost** and **FastAPI** to predict customer churn risk based on service and contract data.
 
-📊 Technical Stack
+---
 
-Modeling & Data Processing:
+## 🚨 Problem Statement
 
-Python: Programming language for model training and API development.
+Customer churn prediction is critical for businesses to retain valuable clients. This project predicts which customers are likely to discontinue their service. With these insights, companies can implement targeted retention strategies, reduce churn rates, and increase customer loyalty.
 
-Pandas: Data manipulation and analysis.
+---
 
-NumPy: Numerical computing for arrays and matrices.
+## 📊 Technical Stack
 
-Scikit-learn: Machine learning tools and utilities.
+**Modeling & Data Processing**:
 
-XGBoost: Gradient boosting model for churn prediction.
+* **Python** – Programming language for model training and API development
+* **Pandas** – Data manipulation and analysis
+* **NumPy** – Numerical computing
+* **Scikit-learn** – Machine learning tools and utilities
+* **XGBoost** – Gradient boosting model for churn prediction
 
-Deployment:
+**Deployment**:
 
-FastAPI: Asynchronous web framework for building APIs.
+* **FastAPI** – Asynchronous web framework for building APIs
+* **Uvicorn** – ASGI server for running FastAPI
 
-Uvicorn: ASGI server to run the FastAPI application.
+**Frontend/Demo Interface**:
 
-Frontend/Demo Interface:
+* **Streamlit** – Interactive frontend for demoing the model
 
-Streamlit: Framework for creating an interactive frontend interface.
+---
 
-🏗️ Project Architecture
-Overview:
+## 🏗️ Project Architecture
 
-The flow of this project involves loading a pre-trained machine learning model, exposing an API via FastAPI, and using Streamlit for a user-friendly interface. Here's a breakdown of the architecture:
+The project flow:
 
-Model: The pre-trained model (churn_model.pkl) is loaded by the FastAPI server.
+1. **Model** – Pre-trained model (`churn_model.pkl`) is loaded by the FastAPI server.
+2. **Backend (FastAPI)** – Preprocesses input data, performs prediction using XGBoost, and returns the result.
+3. **Frontend (Streamlit)** – Collects user input and displays prediction results in an interactive UI.
 
-Frontend (Streamlit): The frontend collects user input and sends it to the FastAPI backend for prediction.
+**Architecture Diagram:**
 
-Backend (FastAPI): The server preprocesses the data, performs the prediction using XGBoost, and returns the churn risk result to the frontend.
-
-Simple Diagram:
+```
 +----------------+     +--------------------+     +------------------------+
 |  Streamlit UI  | --> |    FastAPI API     | --> |  XGBoost Model (Prediction)|
 +----------------+     +--------------------+     +------------------------+
       (User)               (API)                      (Model)
+```
 
-🛠️ Setup and Installation
+---
 
-To run this project locally, follow these steps:
+## 🛠️ Setup & Installation
 
-Clone the Repository:
+1. **Clone the repository**
 
+```bash
 git clone [YOUR_REPO_URL]
 cd Telco_Churn_Prediction_Project
+```
 
+2. **Create and activate a virtual environment**
 
-Create/Activate Environment:
+*Using conda:*
 
-For conda:
-
+```bash
 conda create --name churn-env python=3.9
 conda activate churn-env
+```
 
+*Using venv:*
 
-Or use venv for virtual environments:
-
+```bash
 python -m venv churn-env
-source churn-env/bin/activate  # On Linux/macOS
-churn-env\Scripts\activate     # On Windows
+# On Linux/macOS
+source churn-env/bin/activate
+# On Windows
+churn-env\Scripts\activate
+```
 
+3. **Install dependencies**
 
-Install Dependencies:
-
+```bash
 pip install -r requirements.txt
+```
 
+4. **Train the model**
 
-Train the Model:
-Run the following to generate the model file (churn_model.pkl) and the required feature columns (feature_columns.json):
-
+```bash
 python src/model/train_model.py
+```
 
-🚀 Running the Application
-Start the Backend API:
+This will generate:
 
-In Terminal 1, run:
+* `churn_model.pkl` → trained model
+* `feature_columns.json` → required feature columns
 
+---
+
+## 🚀 Running the Application
+
+**Start Backend API**
+
+```bash
 uvicorn app.main:app --reload
+```
 
+* API: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+* API docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-The API will be accessible at http://127.0.0.1:8000
+**Start Frontend Demo**
 
-API documentation will be available at http://127.0.0.1:8000/docs
-
-Start the Frontend Demo:
-
-In Terminal 2, run:
-
+```bash
 streamlit run app_frontend.py
+```
 
+* Frontend UI: [http://localhost:8501](http://localhost:8501)
 
-The interactive UI will be available at http://localhost:8501
+---
 
-🧑‍💻 API Endpoints
-/predict
+## 🧑‍💻 API Endpoint
 
-Method: POST
+### `/predict`
 
-Description: Predicts the churn risk for one customer.
+* **Method:** POST
+* **Description:** Predicts the churn risk for a single customer.
 
-Request Body:
+**Request Body (example):**
 
-The request should include customer data with 19 features, structured as a Pydantic model.
-
-Example request body:
-
+```json
 {
   "customer_id": 12345,
   "gender": "Female",
   "age": 45,
   "contract_type": "Month-to-month",
   "total_charges": 220.50,
-  "service_type": "Fiber optic",
+  "service_type": "Fiber optic"
   ...
 }
+```
 
-Response Body:
+**Response Body (example):**
 
-The response will indicate whether the customer is predicted to churn or not, along with the probability.
-
-Example response body:
-
+```json
 {
   "churn_prediction": "Yes",
   "churn_probability": 0.85
 }
-=======
-# Data-Science-Projects-
-Collection of my data science practice projects 
->>>>>>> 8595c4976478911be53324fdc80e8cad92577235
+```
+
