@@ -1,6 +1,4 @@
-Here’s a polished, professional version of your GitHub README that will make your project stand out:
 
----
 
 # 📝 Telco Customer Churn Prediction API
 
