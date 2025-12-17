@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 📝 Telco Customer Churn Prediction API
 Tagline
 
@@ -137,3 +138,7 @@ Example response body:
   "churn_prediction": "Yes",
   "churn_probability": 0.85
 }
+=======
+# Data-Science-Projects-
+Collection of my data science practice projects 
+>>>>>>> 8595c4976478911be53324fdc80e8cad92577235
